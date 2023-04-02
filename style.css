@@ -71,15 +71,14 @@ p, h1, h2, h3, h4, h5, h6 {
 
 
 /* GENERAL STYLE */
-
-.container{
+body{
+  background-color: var(--Very-dark-blue-main-BG);
   display: grid;
   place-content: center;
-  background-color: var(--Very-dark-blue-main-BG);
   font-family: var(--ff-outfit);
   color: var(--White);
-  min-height: 100%;
 }
+
 
 .nft-card{
   display: grid;
@@ -102,28 +101,39 @@ h1 a:hover{
 
 /* image hover style */
 
-.view-effect{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background-color: rgba(0, 255, 247, 0.3); 
-  display: grid;
-  place-content: center;
-}
-
-.nft-img:hover .view-effect{
-  z-index: 10;
-}
-
 .nft-img{
   position: relative;
-  cursor: pointer;
-  border-radius: .5rem;
+  display: flex;
+  border-radius: 8px;
   overflow: hidden;
-  transition: all 300ms;
+}
+
+.nft-img::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--Cyan);
+  position: absolute;
+  opacity: 0;
+  transition: 300ms ease-in-out;
+}
+
+.nft-img::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url(images/icon-view.svg) no-repeat center;
+  position: absolute;
+  opacity: 0;
+  transition: 300ms ease-in;
+}
+
+.nft-img:hover::before{
+  opacity: 0.2;
+}
+
+.nft-img:hover::after{
+  opacity: 1;
 }
 
 .card-description{
@@ -201,17 +211,19 @@ h1 a:hover{
 
 /* ATTRIBUTION style */
 
-.attribution{
+footer{
   margin: 1rem auto;
   color: var(--Soft-blue);
+  text-align: center;
 }
 
 .attribution a{
   text-decoration: none;
   color: var(--White);
+  
 }
 
 .attribution a:hover{
-  color: var(--Cyan);
+  border-bottom: solid 1px var(--White);
 }
 
